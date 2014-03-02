@@ -6,21 +6,22 @@ public class Case {
 	int ordonnee;
 	String contenu;
 	
-	Case(){
+	public Case(){
 		abscisse =0;
 		ordonnee = 0;
 		contenu = "*";
 	}
 	
-	Case(int x, int y, String contenuCase){
+	public Case(int x, int y, String contenuCase){
 		abscisse = x;
 		ordonnee = y;
 		contenu = contenuCase;
 		
 	}
-	public void afficherContenu(){
+	public  void afficherContenu(){
 		
-		System.console().printf(contenu);
+		System.out.print(contenu);
+		
 	}
 
 }
