@@ -3,7 +3,11 @@ package com.supinfo.sokoban;
 public class Main {
 
 	public static void main(String[] args) {
-
+	
+		if(argv.length>=2){
+     	 	--level=argv[0];
+      		arg2=argv[1];
+   		}
 		Case[][] map = new Case[8][8];
 		
 		
