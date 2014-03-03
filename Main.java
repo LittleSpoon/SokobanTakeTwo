@@ -22,5 +22,35 @@ public class Main {
 						System.out.println();
 				}
 			}
+			//on libère la mémoire allouée à la map ainsi on peut choisir de nouvelles dimensions au besoin
+			//Pour charger le niveau suivant par exemple :
+			
+			for(int i =0; i < largeurMap ; i++){
+				for(int j = 0; j < hauteurMap; j++){
+					map[i][j] = null;
+				}
+			}
+				map =null;
+				
+				
+				//Preuve à l'appui :
+				
+				System.out.println("level 2");
+				
+				map = new Case[10][20];
+				
+				for(int i = 0; i < 10 ; i++){
+					for(int j =0; j < 20; j++){
+						map[i][j] = new Case();
+					}
+				}
+				
+				for(int i = 0; i < 10; i++){
+					for(int j =0; j < 20; j++){
+						map[i][j].afficherContenu();
+						if(j == 19)
+							System.out.println();
+					}
+				}
 		}
 }
