@@ -8,13 +8,6 @@ import java.io.PrintWriter;
 
 
 public class Score {
-<<<<<<< HEAD
-	
-	//public FileWriter(String fileName);
-	
-	//Utiliser un tableau pour écrire les scrores
-	//méthode écrire score fichier
-	//méthode lire score fichier
 	
 	public void EntryAndWriteScore(){
 		int j=0;
@@ -47,10 +40,6 @@ public class Score {
 		{
 			System.out.println("Problème d'IO");
 		}
-	
-	
-=======
->>>>>>> 97bd18887eac89e6c39fbc402d931be614049440
 
 	}
 }
