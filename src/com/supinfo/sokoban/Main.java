@@ -8,6 +8,17 @@ public class Main {
      	 	--level=argv[0];
       		arg2=argv[1];
    		}
+   		
+   		//Si --level est égale à 0 alors il n'y a pas d'argument)
+		if(--level == 0){
+			System.out.println("Il n'y pas d'argument");
+		}else if(--level != 0 && arg2==0){ //Ainsi de suite 
+			System.out.println("Arg2 égale 0");
+		}else{System.out.println("Il y deux arguments");}
+   		
+   		//faire un if pour vérifier si il y a deux arguments "--level" ---- FAIT 
+   		
+   		
 		Case[][] map = new Case[8][8];
 		
 		
