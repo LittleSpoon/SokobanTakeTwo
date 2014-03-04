@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 
 
 public class Score {
+<<<<<<< HEAD
 	
 	//public FileWriter(String fileName);
 	
@@ -48,6 +49,8 @@ public class Score {
 		}
 	
 	
+=======
+>>>>>>> 97bd18887eac89e6c39fbc402d931be614049440
 
 	}
 }
