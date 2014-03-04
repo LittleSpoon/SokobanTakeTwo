@@ -24,7 +24,7 @@ public class Main {
 			}
 		}
 		
-		//////////////////////////////// 		
+		/* 		
 		Case[][] map = new Case[8][8];
 		
 		
@@ -39,7 +39,7 @@ public class Main {
 			for (int j = 0; j < 8; j++) {
 				map[i][j].afficherContenu();
 			}
-		}
+		} */
 		
 
 	}
