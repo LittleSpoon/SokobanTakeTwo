@@ -8,31 +8,48 @@ public class Joueur {
 	int x;
 	int y;
 	String directionJoueur;
-	Case map[][];
+	
 						
 	
+						//CONSTRUCTEUR
+	
+	Joueur(Case map[][], int largeurMap, int hauteurMap){
+		score = 0;
+		x = 0;
+		y =0;
+		directionJoueur = "DROITE";
+		
+	}
 						//METHODES :
 	
-	public void deplacerJoueur(String direction){
+	public void deplacerJoueur(String direction, Case map[][]){
 		
 		//if(gestionCollision == ok) :
 		
 		switch(direction){
 			
 			case "HAUT":
+				map[x][y].setContenu(" ");
 				y--;
+				map[x][y].setContenu("X");
 				break;
 			
 			case "BAS":
+				map[x][y].setContenu(" ");
 				y++;
+				map[x][y].setContenu("X");
 				break;
 			
 			case "GAUCHE":
+				map[x][y].setContenu(" ");
 				x--;
+				map[x][y].setContenu("X");
 				break;
 			
 			case "DROITE":
+				map[x][y].setContenu(" ");
 				x++;
+				map[x][y].setContenu("X");
 				break;
 			
 			default :
@@ -41,7 +58,7 @@ public class Joueur {
 		
 	}
 	
-	public boolean gestionCollision(String DirectionJoueur){
+	public boolean gestionCollision(String DirectionJoueur, Case map[][]){
 		
 		boolean ok = false;
 		switch(directionJoueur){	//On teste la direction du joueur grâce a un switch
@@ -87,6 +104,38 @@ public class Joueur {
 		}
 		
 		return ok;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public String getDirectionJoueur() {
+		return directionJoueur;
+	}
+
+	public void setDirectionJoueur(String directionJoueur) {
+		this.directionJoueur = directionJoueur;
 	}
 
 }
