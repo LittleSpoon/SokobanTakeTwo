@@ -4,15 +4,16 @@ public class Main {
 
 	public static void main(String[] args) {
 	
-		if(argv.length>=2){
-     	 	--level=argv[0];
-      		arg2=argv[1];
+		if(args.length>=2){
+     	 	arg1=args[0];
+      		arg2=args[1];
    		}
    		
    		//Si --level est égale à 0 alors il n'y a pas d'argument)
-		if(--level == 0){
+   		//di le premier arg = score ou creat
+		if( arg1 == 0 ){
 			System.out.println("Il n'y pas d'argument");
-		}else if(--level != 0 && arg2==0){ //Ainsi de suite 
+		}else if(arg1 != 0 && arg2==0){ //Ainsi de suite 
 			System.out.println("Arg2 égale 0");
 		}else{System.out.println("Il y deux arguments");}
    		
