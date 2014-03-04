@@ -22,20 +22,18 @@ public class Main {
 					
 					level = args[1];
 					Play sokoban = new Play(level);
-
 					
 				} else {
 					
-
 					Play sokoban = new Play();
 					
 				}
 			}
 			
-
 		} else {
 
 			Play sokoban = new Play();
+			
 		}
 		
 		
