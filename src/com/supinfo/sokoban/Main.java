@@ -3,23 +3,28 @@ package com.supinfo.sokoban;
 public class Main {
 
 	public static void main(String[] args) {
-	
+		String arg1 = null;
+		String arg2 = null;
+		
 		if(args.length>=2){
      	 	arg1=args[0];
       		arg2=args[1];
    		}
    		
    		//Si --level est égale à 0 alors il n'y a pas d'argument)
-   		//di le premier arg = score ou creat
-		if( arg1 == 0 ){
-			System.out.println("Il n'y pas d'argument");
-		}else if(arg1 != 0 && arg2==0){ //Ainsi de suite 
-			System.out.println("Arg2 égale 0");
-		}else{System.out.println("Il y deux arguments");}
-   		
-   		//faire un if pour vérifier si il y a deux arguments "--level" ---- FAIT 
-   		
-   		
+   		//di le premier arg = level ou creat
+		if(arg1 != null && arg1=="--level"){
+			System.out.println("Test fonctionnement");
+			
+			if(arg2=="niv1"){
+				System.out.println("Test fonctionnement");
+				// Action 
+			}else if(arg2=="creat"){
+				System.out.println("Test fonctionnement");
+			}
+		}
+		
+		//////////////////////////////// 		
 		Case[][] map = new Case[8][8];
 		
 		
