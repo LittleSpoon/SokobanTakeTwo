@@ -11,16 +11,18 @@ public class Plateau implements java.io.Serializable {
 	private int coordX;
 	private int coordY;
 	private String contenu;
+	private int cible;
 		
 								//CONSTRUCTEUR
 	
-	Plateau(){
+	public Plateau(){
 		hauteurPlateau = 8;
 		largeurPlateau = 8;
 		coordX=0;
 		coordY=0;
 		contenu=" ";
 		nb_cibles =1;
+		cible=0;
 		nomPlateau="temp";
 		
 		plateau = new Case[largeurPlateau][hauteurPlateau];
@@ -70,8 +72,9 @@ public class Plateau implements java.io.Serializable {
 	
 	//Modifier le contenu d'une case
 	
-	public void setPlateauCase(int coordX, int coordY, String contenu){
+	public void setPlateauCase(int coordX, int coordY, String contenu, int cible){
 		plateau[coordX][coordY].setContenu(contenu);
+		plateau[coordX][coordY].setCible(cible);
 	}
 	
 							//GETTERS ET SETTERS
