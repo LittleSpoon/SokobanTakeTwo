@@ -26,10 +26,10 @@ public class score {
 		//Lire un fichier texte et écrire dans un tableau.
 		//trier le tout 
 	
-		public void EntryAndWriteScore(){
+		public void ecritureDansFichier(int score){
 	
-		while(getScore()!=0){ 
-			tableauScore[j] = getScore();
+		while(score!=0){ 
+			tableauScore[j] = score;
 			j++;
 		}
 	
@@ -53,7 +53,7 @@ public class score {
 	}
 	
 	
-		public void compare{
+		public void compare(int score){
 			
 		String filePath = " "; //mettre le chemin du fichier
 		 
@@ -63,10 +63,8 @@ public class score {
 		
 		while (scanner.hasNextLine()) {
 		    String line = scanner.nextLine();
-		 
-			//faites ici votre traitement
 		    
-		    if(getScore<Integer.parseIn(line)){
+		    if(score<Integer.parseIn(line)){
 		    	tableauScore[j]=Integer.parseIn(line);
 		    }else{
 		    	System.out.println("Votre score est trop faible");
