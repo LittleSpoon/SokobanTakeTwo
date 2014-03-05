@@ -22,11 +22,14 @@ public class score {
 			String path = null;
 			String text = null;
 		}
+		
+		//Lire un fichier texte et écrire dans un tableau.
+		//trier le tout 
 	
 		public void EntryAndWriteScore(){
 	
-		while(getScore!=0){ 
-			tableauScore[j] = getScore ;
+		while(getScore()!=0){ 
+			tableauScore[j] = getScore();
 			j++;
 		}
 	
@@ -48,6 +51,29 @@ public class score {
 	  	  System.out.println ("Erreur lors de la lecture : " + exception.getMessage());
 		}
 	}
+	
+	
+		public static void triBulleCroissant(int tableauScore[]) {
+			int longueur = tableauScore.length;
+			int tampon = 0;
+			boolean permut;
+	 
+			do {
+				// hypothèse : le tableau est trié
+				permut = false;
+				for (int i = 0; i < longueur - 1; i++) {
+					// Teste si 2 éléments successifs sont dans le bon ordre ou non
+					if (tableauScore[i] > tableauScore[i + 1]) {
+						// s'ils ne le sont pas, on échange leurs positions
+						tampon = tableauScore[i];
+						tableauScore[i] = tableauScore[i + 1];
+						tableauScore[i + 1] = tampon;
+						permut = true;
+					}
+				}
+			} while (permut);
+		}
+	
 	
 
 }
