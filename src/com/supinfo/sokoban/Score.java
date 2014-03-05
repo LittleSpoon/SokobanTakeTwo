@@ -11,10 +11,10 @@ import java.io.BufferedWriter;
 
 public class score {
 	
-	private int j=0;
-	private int tableauScore[] = null;
-	private String path = null;
-	private String text = null;
+	private int j;
+	private int tableauScore[];
+	private String path;
+	private String text;
 		
 		public Score(){
 			j = 0;
@@ -25,8 +25,8 @@ public class score {
 	
 		public void EntryAndWriteScore(){
 	
-		while(score!=0){ //mettre le getter de play
-			tableauScore[j] = null ; /// mettre le getter de play
+		while(getScore!=0){ 
+			tableauScore[j] = getScore ;
 			j++;
 		}
 	
