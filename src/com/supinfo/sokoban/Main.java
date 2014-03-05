@@ -4,6 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		/*
 		//Parse the arguments from the console.
 
 		if (args.length >= 1) {
@@ -35,7 +36,14 @@ public class Main {
 
 			Play sokoban = new Play();
 			
-		}
+		}*/
+		
+		Plateau test = new Plateau();
+		test.setPlateauCase(3, 2, "*");
+		test.setPlateauCase(2,1,"*");
+		
+		SaveMap saveTest = new SaveMap(test);
+
 		
 	}
 	

@@ -2,7 +2,7 @@ package com.supinfo.sokoban;
 
 
 
-public class Case {
+public class Case implements java.io.Serializable{
 	
 	
 						//SECTION ATTRIBUTS 
