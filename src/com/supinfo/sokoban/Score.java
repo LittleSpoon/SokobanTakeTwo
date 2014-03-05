@@ -15,6 +15,13 @@ public class score {
 	private int tableauScore[] = null;
 	private String path = null;
 	private String text = null;
+		
+		public Score(){
+			j = 0;
+			tableauScrore[] = null;
+			String path = null;
+			String text = null;
+		}
 	
 		public void EntryAndWriteScore(){
 	
