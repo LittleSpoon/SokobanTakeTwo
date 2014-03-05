@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.BufferedWriter;
 
 
-public class score {
+public class Score {
 	
 	private int j;
 	private int tableauScore[];
@@ -18,7 +18,7 @@ public class score {
 		
 		public Score(){
 			j = 0;
-			tableauScrore[] = null;
+			tableauScore = null;
 			String path = null;
 			String text = null;
 		}
@@ -53,7 +53,7 @@ public class score {
 	}
 	
 	
-		public void compare{
+		public void compare(){
 			
 		String filePath = " "; //mettre le chemin du fichier
 		 
