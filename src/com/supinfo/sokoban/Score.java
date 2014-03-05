@@ -66,8 +66,8 @@ public class score {
 		 
 			//faites ici votre traitement
 		    
-		    if(getScore<line){
-		    	tableauScore[j]=line;
+		    if(getScore<Integer.parseIn(line)){
+		    	tableauScore[j]=Integer.parseIn(line);
 		    }else{
 		    	System.out.println("Votre score est trop faible");
 		    }
