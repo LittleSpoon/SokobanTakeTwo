@@ -1,5 +1,14 @@
 package com.supinfo.sokoban;
 
+/*
+Exemple d'utilisation de LoadMap.
+
+Plateau loadedMap = null;
+LoadMap test = new LoadMap("temp");
+loadedMap = test.getMap();
+loadedMap.afficherPlateau();
+*/
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -10,7 +19,7 @@ public class LoadMap {
 
 	public LoadMap(String mapName){
 		
-		Plateau map = null;
+		map = null;
 		
 		try
 	      {
@@ -19,6 +28,7 @@ public class LoadMap {
 	         map = (Plateau) in.readObject();
 	         in.close();
 	         fileIn.close();
+			 return;
 	      }catch(IOException i)
 	      {
 	         i.printStackTrace();

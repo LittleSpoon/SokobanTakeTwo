@@ -1,7 +1,8 @@
 package com.supinfo.sokoban;
 
-public class Plateau {
+public class Plateau implements java.io.Serializable {
 								//ATTRIBUTS
+<<<<<<< HEAD
 	int hauteurPlateau;
 	int largeurPlateau;
 	int nb_cibles;
@@ -10,18 +11,30 @@ public class Plateau {
 	
 	
 	
+=======
+	private int hauteurPlateau;
+	private int largeurPlateau;
+	private int nb_cibles;	
+	private String nomPlateau;
+	private Case plateau[][];
+	private int coordX;
+	private int coordY;
+	private String contenu;
+		
+>>>>>>> 7a400da430a83e15cdb6769852f451043f8aa32b
 								//CONSTRUCTEUR
 	
 	Plateau(){
 		hauteurPlateau = 8;
 		largeurPlateau = 8;
+		coordX=0;
+		coordY=0;
+		contenu=" ";
 		nb_cibles =1;
 		nomPlateau="temp";
 		
 		plateau = new Case[largeurPlateau][hauteurPlateau];
-		
 		for(int i = 0; i < largeurPlateau; i++) {
-			
 			for(int j =0; j < hauteurPlateau; j++) {
 				plateau[i][j] = new Case();
 			}
@@ -54,6 +67,22 @@ public class Plateau {
 		}
 	}
 	
+	//Methode pour afficher le tableau
+	public void afficherPlateau(){
+		
+		for( int i =0; i < largeurPlateau; i++){
+			for( int j =0; j < hauteurPlateau; j++ ){
+				plateau[i][j].afficherContenu();
+			}
+			System.out.println();
+		}
+	}
+	
+	//Modifier le contenu d'une case
+	
+	public void setPlateauCase(int coordX, int coordY, String contenu){
+		plateau[coordX][coordY].setContenu(contenu);
+	}
 	
 							//GETTERS ET SETTERS
 	
