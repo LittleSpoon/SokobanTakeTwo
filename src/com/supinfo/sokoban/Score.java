@@ -1,46 +1,46 @@
 package com.supinfo.sokoban;
 
-import java.io.File;
 import java.io.FileReader ;
 import java.io.FileWriter ;
 import java.io.BufferedReader ;
 import java.io.IOException ;
 import java.io.PrintWriter;
+import java.io.File;
+import java.io.BufferedWriter;
 
 
-public class Score {
+public class score {
 	
-	public void EntryAndWriteScore(){
-		int j=0;
-		int score=(Integer) null;
-		int tableauScore[] = null;
+	private int j=0;
+	private int tableauScore[] = null;
+	private String path = null;
+	private String text = null;
 	
-	while(score!=0){
-		tableauScore[j]= score;
-		j++;
-	}
+		public void EntryAndWriteScore(){
 	
-	for(int i = 0; i < tableauScore.length; i++)
-	{
-	  System.out.println("Le score " + i +" est " + tableauScore[i]);
-	}
+		while(score!=0){ //mettre le getter de play
+			tableauScore[j] = null ; /// mettre le getter de play
+			j++;
+		}
 	
-		File f = new File(fichier);
+		File fichier = new File ("Score");
+	 
 		try
 		{
-			FileWriter fw = new FileWriter(f);
-			
-			for(double d : tableauScore)
-			{
-				fw.write(String.valueOf(d));
-				fw.write("\r\n");
-			}
-			fw.close();
+		    PrintWriter pw = new PrintWriter (new BufferedWriter (new FileWriter (fichier)));
+	 
+		    for (double d : tableauScore)
+		    {
+		        pw.println (d);
+		    }
+	 
+		    pw.close();
 		}
-		catch (IOException a)
+		catch (IOException exception)
 		{
-			System.out.println("Problème d'IO");
+	  	  System.out.println ("Erreur lors de la lecture : " + exception.getMessage());
 		}
-
 	}
+	
+
 }
