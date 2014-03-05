@@ -5,7 +5,7 @@ public class Plateau {
 	int hauteurPlateau;
 	int largeurPlateau;
 	int nb_cibles;
-	int nb_caisses;
+	
 	Case  plateau[][];
 	
 	
@@ -15,7 +15,7 @@ public class Plateau {
 	Plateau(){
 		hauteurPlateau = 8;
 		largeurPlateau = 8;
-		
+		nb_cibles =1;
 		plateau = new Case[largeurPlateau][hauteurPlateau];
 		
 		for(int i = 0; i < largeurPlateau; i++) {
@@ -50,6 +50,26 @@ public class Plateau {
 				plateau[i][j] = new Case();
 			}
 		}
+	}
+	
+	
+							//GETTERS ET SETTERS
+	
+
+	public int getHauteurPlateau() {
+		return hauteurPlateau;
+	}
+
+	public void setHauteurPlateau(int hauteurPlateau) {
+		this.hauteurPlateau = hauteurPlateau;
+	}
+
+	public int getNb_cibles() {
+		return nb_cibles;
+	}
+
+	public void setNb_cibles(int nb_cibles) {
+		this.nb_cibles = nb_cibles;
 	}
 
 }
