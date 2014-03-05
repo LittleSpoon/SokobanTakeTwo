@@ -3,8 +3,8 @@ package com.supinfo.sokoban;
 public class Main {
 
 	public static void main(String[] args) {
-
-		String level = null;
+		
+		//Parse the arguments from the console.
 
 		if (args.length >= 1) {
 		
@@ -20,10 +20,11 @@ public class Main {
 				
 				if (args.length >= 2) {
 					
-					level = args[1];
-					Play sokoban = new Play(level);
+					Play sokoban = new Play(args[1]);
 					
 				} else {
+					
+					//If the --level argument is used without a second argument it launch the default level.
 					
 					Play sokoban = new Play();
 					
