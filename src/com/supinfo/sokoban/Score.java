@@ -15,6 +15,7 @@ public class score {
 	private int tableauScore[];
 	private String path;
 	private String text;
+	private String filePath;
 		
 		public Score(){
 			j = 0;
