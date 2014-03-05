@@ -4,10 +4,10 @@ public class Joueur {
 						
 	
 						//ATTRIBUTS :
-	int score;
-	int x;
-	int y;
-	String directionJoueur;
+	private int score;
+	private int x;
+	private int y;
+	private String directionJoueur;
 	
 						
 	
@@ -21,44 +21,107 @@ public class Joueur {
 		
 	}
 						//METHODES :
-	
-	public void deplacerJoueur(String direction, Case map[][]){
+	public void deplacerCaisse(Case map[][]){
 		
-		//if(gestionCollision == ok) :
-		
-		switch(direction){
-			
+		switch(directionJoueur){
 			case "HAUT":
-				map[x][y].setContenu(" ");
-				y--;
-				map[x][y].setContenu("X");
+				//Si la case du dessus contient une caisse
+				if(map[x][y-1].getContenu() == "B"){
+					//...et que la case au au dessus de celle ci est vide ou contient un espace de stokage
+					if((map[x][y-2].getContenu() == " ") || (map[x][y-2].getContenu() == "O")){
+						map[x][y-2].setContenu("B");	//...On indique que la case contient desormais une caisse.
+					}
+				}
 				break;
 			
 			case "BAS":
-				map[x][y].setContenu(" ");
-				y++;
-				map[x][y].setContenu("X");
+				if(map[x][y+1].getContenu() == "B"){
+					if((map[x][y+2].getContenu() == " ") || (map[x][y+2].getContenu() == "O")){
+						map[x][y+2].setContenu("B");
+					}
+				}
 				break;
 			
 			case "GAUCHE":
-				map[x][y].setContenu(" ");
-				x--;
-				map[x][y].setContenu("X");
+				if(map[x-1][y].getContenu() == "B"){
+					if((map[x-2][y].getContenu() == " ") || (map[x-2][y].getContenu() == "O")){
+						map[x-2][y].setContenu("B");
+					}
+				}
 				break;
 			
 			case "DROITE":
-				map[x][y].setContenu(" ");
-				x++;
-				map[x][y].setContenu("X");
+				if(map[x+1][y].getContenu() == "B"){
+					if((map[x+2][y].getContenu() == " ") || (map[x+2][y].getContenu() == "O")){
+						map[x+2][y].setContenu("B");
+					}
+				}
 				break;
+		}
+	}
+	
+	public void deplacerJoueur(Case map[][]){
+		
+		if(gestionCollision(map) == true){	//Si on à le droit de se déplacer  
+		
+		switch(directionJoueur){
 			
-			default :
-				break;
+				case "HAUT":
+					deplacerCaisse(map);
+					if(map[x][y].getCible() == 0){	//Si la case ou l'on se trouve n'est pas un espace de stockage...
+						map[x][y].setContenu(" ");	//...le contenu de la case sera un espace vide.
+					}
+					else{
+						map[x][y].setContenu("O");	//...Autrement si c'est un espace de stockage le contneu de la case sera un espace de stokage
+					}
+					y--;
+					map[x][y].setContenu("X");	//enfin on déplace le joueur et on change le contenu de la case afin qu'elle contienne le joueur
+					break;
+			
+				case "BAS":
+					deplacerCaisse(map);
+					if(map[x][y].getCible() == 0){
+						map[x][y].setContenu(" ");
+					}
+					else{
+						map[x][y].setContenu("O");
+					}
+					y++;
+					map[x][y].setContenu("X");
+					break;
+			
+				case "GAUCHE":
+					deplacerCaisse(map);
+					if(map[x][y].getCible() == 0){
+						map[x][y].setContenu(" ");
+					}
+					else{
+						map[x][y].setContenu("O");
+					}
+					x--;
+					map[x][y].setContenu("X");
+					break;
+			
+				case "DROITE":
+					deplacerCaisse(map);
+					if(map[x][y].getCible() == 0){
+						map[x][y].setContenu(" ");
+					}
+					else{
+						map[x][y].setContenu("O");
+					}
+					x++;
+					map[x][y].setContenu("X");
+					break;
+			
+				default :
+					break;
+			}
 		}
 		
 	}
 	
-	public boolean gestionCollision(String DirectionJoueur, Case map[][]){
+	public boolean gestionCollision(Case map[][]){
 		
 		boolean ok = false;
 		

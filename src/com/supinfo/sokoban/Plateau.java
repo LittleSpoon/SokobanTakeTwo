@@ -5,9 +5,7 @@ public class Plateau {
 	int hauteurPlateau;
 	int largeurPlateau;
 	int nb_cibles;
-	
 	String nomPlateau;
-
 	Case  plateau[][];
 	
 	
@@ -19,6 +17,7 @@ public class Plateau {
 		largeurPlateau = 8;
 		nb_cibles =1;
 		nomPlateau="temp";
+		
 		plateau = new Case[largeurPlateau][hauteurPlateau];
 		
 		for(int i = 0; i < largeurPlateau; i++) {
@@ -74,7 +73,7 @@ public class Plateau {
 	public void setNb_cibles(int nb_cibles) {
 		this.nb_cibles = nb_cibles;
 	}
-
+	
 	public String getNomPlateau() {
 		return nomPlateau;
 	}
@@ -84,3 +83,5 @@ public class Plateau {
 	}
 
 }
+
+

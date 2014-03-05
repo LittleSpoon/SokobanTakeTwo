@@ -8,16 +8,17 @@ public class Case {
 						//SECTION ATTRIBUTS 
 	
 	
-	int abscisse;		//deux int indiquant l'abscisse et l'ordonnée de la case 
-	int ordonnee;
-	String contenu;		//un string qui indiquera ce que contiendra la case (joueur , caisse , mur....)
-	
+	private int abscisse;		//deux int indiquant l'abscisse et l'ordonnée de la case 
+	private int ordonnee;
+	private String contenu;		//un string qui indiquera ce que contiendra la case (joueur , caisse , mur....)
+	private int cible;
 	
 	//Constructeur par défaut de la classe Case :
 	public Case(){
 		abscisse =0;
 		ordonnee = 0;
 		contenu = " ";
+		cible = 0;
 	}
 	
 	//Constructeur "surchargé  :
@@ -78,6 +79,14 @@ public class Case {
 	
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
+	}
+
+	public int getCible() {
+		return cible;
+	}
+
+	public void setCible(int cible) {
+		this.cible = cible;
 	}
 
 }
