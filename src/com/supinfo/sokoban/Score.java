@@ -53,6 +53,29 @@ public class score {
 	}
 	
 	
+		public void compare{
+			
+		String filePath = " "; //mettre le chemin du fichier
+		 
+		Scanner scanner=new Scanner(new File(filePath));
+		 
+		// On boucle sur chaque champ detecté
+		
+		while (scanner.hasNextLine()) {
+		    String line = scanner.nextLine();
+		 
+			//faites ici votre traitement
+		    
+		    if(getScore<line){
+		    	tableauScore[j]=line;
+		    }else{
+		    	System.out.println("Votre score est trop faible");
+		    }
+		}
+		 
+		scanner.close();
+		}
+	
 		public static void triBulleCroissant(int tableauScore[]) {
 			int longueur = tableauScore.length;
 			int tampon = 0;
