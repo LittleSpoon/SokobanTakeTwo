@@ -104,6 +104,54 @@ public class Plateau implements java.io.Serializable {
 		this.nomPlateau = nomPlateau;
 	}
 
+	public int getLargeurPlateau() {
+		return largeurPlateau;
+	}
+
+	public void setLargeurPlateau(int largeurPlateau) {
+		this.largeurPlateau = largeurPlateau;
+	}
+
+	public Case[][] getPlateau() {
+		return plateau;
+	}
+
+	public void setPlateau(Case[][] plateau) {
+		this.plateau = plateau;
+	}
+
+	public int getCoordX() {
+		return coordX;
+	}
+
+	public void setCoordX(int coordX) {
+		this.coordX = coordX;
+	}
+
+	public int getCoordY() {
+		return coordY;
+	}
+
+	public void setCoordY(int coordY) {
+		this.coordY = coordY;
+	}
+
+	public String getContenu() {
+		return contenu;
+	}
+
+	public void setContenu(String contenu) {
+		this.contenu = contenu;
+	}
+
+	public int getCible() {
+		return cible;
+	}
+
+	public void setCible(int cible) {
+		this.cible = cible;
+	}
+
 }
 
 
