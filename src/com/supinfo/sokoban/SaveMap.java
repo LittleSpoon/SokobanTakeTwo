@@ -1,5 +1,12 @@
 package com.supinfo.sokoban;
 
+/*
+Exemple d'utilisation de la classe SaveMap
+
+Plateau test = new Plateau();
+SaveMap saveTest = new SaveMap(test);
+*/
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
