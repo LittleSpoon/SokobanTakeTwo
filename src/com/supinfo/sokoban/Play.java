@@ -7,8 +7,8 @@ public class Play {
 	private int hauteurMap;
 	private int nb_cibles;
 	private int nb_caissesRangees;
-	
-	private Case [][]map = new Case[largeurMap][hauteurMap];
+	private int score = 0;
+	private Plateau  plateau;
 	private Joueur player ;
 	
 						//CONSTRUCTEURS
@@ -16,19 +16,11 @@ public class Play {
 	//Constructeur par defaut
 	Play(){
 		
-		largeurMap = 8;
-		hauteurMap = 8;
+		plateau = new Plateau();
 		nb_cibles = 1;
 		nb_caissesRangees =0;
 		
-		
-		for(int i =0; i < largeurMap; i++){
-			for(int j = 0; j < hauteurMap; j++){
-				map[i][j] = new Case();
-			}
-		}
-		
-		player = new Joueur(map, largeurMap, hauteurMap);
+		player = new Joueur(plateau.getPlateau(), largeurMap, hauteurMap);
 	}
 	
 	//constructeur surchargé :
@@ -50,7 +42,7 @@ public class Play {
 	
 	
 	
-	public void chargerNiveau(String level){		//méthode permettant de charger un niveau à partire d'un fichier
+	public void changerNiveau(String level){		//méthode permettant de changer un niveau à partir d'un fichier
 		//largeurMap = level.largeurMap;
 		//hauteurMap = level.hauteurMap;
 		//nb_cible = level.nb_cible;
@@ -58,12 +50,7 @@ public class Play {
 	
 	public void afficherMap(){
 		
-		for( int i =0; i < largeurMap; i++){
-			for( int j =0; j < hauteurMap; j++ ){
-				map[i][j].afficherContenu();
-			}
-			System.out.println();
-		}
+		plateau.afficherPlateau();
 	}
 	
 	//La méthode jouer devra etre appelée dans le main elle permet de faire tourner le jeu
@@ -78,8 +65,8 @@ public class Play {
 			
 			//player.setDirectionJoueur( SAISIE CLAVIER );
 			
-			player.deplacerJoueur(map);		//on déplace le joueur sur la map
-			chercherCaissesRangees();		//On cherche les caisse déjà rangées
+			player.deplacerJoueur(plateau.getPlateau());		//on déplace le joueur sur la map
+			chercherCaissesRangees(plateau.getPlateau());		//On cherche les caisse déjà rangées
 			if(nb_caissesRangees == nb_cibles){		//si toutes les caisses sont rangées on à gagné 
 				victoire = true;
 			}
@@ -88,7 +75,7 @@ public class Play {
 		while(victoire == false); 	//On sort de la boucle si les conditions de victoire sont remplies
 	}
 	
-	public void chercherCaissesRangees(){
+	public void chercherCaissesRangees(Case map[][]){
 		
 		for(int i =0 ; i < largeurMap; i++){
 			for( int j =0; j < hauteurMap; j++){
