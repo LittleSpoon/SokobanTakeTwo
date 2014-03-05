@@ -17,7 +17,7 @@ public class Case {
 	public Case(){
 		abscisse =0;
 		ordonnee = 0;
-		contenu = "*";
+		contenu = " ";
 	}
 	
 	//Constructeur "surchargé  :

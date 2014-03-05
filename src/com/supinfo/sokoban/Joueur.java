@@ -61,8 +61,12 @@ public class Joueur {
 	public boolean gestionCollision(String DirectionJoueur, Case map[][]){
 		
 		boolean ok = false;
+		
 		switch(directionJoueur){	//On teste la direction du joueur grâce a un switch
+		
 			case "HAUT" :
+				//On teste le contenu de la case au dessus du joueur :
+				
 				switch(map[x][y-1].getContenu()){		//On teste le contenu de la case au dessus du joueur
 					case " " :
 						ok = true;	//Si la case d'au dessus est vide on peut deplacer le joueur vers le haut
@@ -88,15 +92,85 @@ public class Joueur {
 				break;
 			
 			case "BAS" :
-				//On fera comme pour la direction haut mais avec la case d'en dessous
+				//On teste le contenu de la case en dessus du joueur :
+				switch(map[x][y+1].getContenu()){
+					case " ":
+						ok =true;
+						break;
+					
+					case "B":
+						if((map[x][y+2].getContenu() == " ") || (map[x][y+2].getContenu() == "O"))
+							ok =true;
+						else 
+							ok =false; //S'il y a une caisse ou un mur derrière la caisse on interdit le deplacement;
+						break;
+					
+					case "=":	
+						ok =false; //s'il y a un mur on interdit le déplacement
+						break;
+					
+					case "O":		//si la case est un espace de stockage ou peut déplacer le joueur vers le bas
+						ok = true;
+						break;
+					
+					default :
+						break;
+				}
 				break;
 			
 			case "GAUCHE" :
-				//On fera comme pour la direction haut mais avec la case à gauche
+				//On teste le contenu de la case à gauche du joueur :
+				switch(map[x-1][y].getContenu()){
+					case " ":
+						ok = true;	//si la case de gauche est vide on peut se déplacer
+						break;
+					
+					case "B" :	//si la case de gauche contient une caisse...
+						if((map[x-2][y].getContenu() == " ") || (map[x-2][y].getContenu() == "O")) 
+							ok =true;	//....et que la case derriere celle ci est vide ou contient un espace de stockage, on peut se déplacer. 
+						else
+							ok =false;	//Sinon on interdit le déplacement.
+						break;
+					
+					case "=":
+						ok = false;		//Si la case de gauche est un mur on interdit le déplacement
+						break;
+					
+					case "O":
+						ok =true;	//Si la case de gauchte est un espace de stockage on peut se déplacer
+						break;
+					
+					default:
+						break;
+				}
 				break;
 			
 			case "DROITE" :
-				//On fera comme pour la direction haut mais avec la case à droite
+				//On teste le contenu de la case à droite du joueur :
+				switch(map[x+1][y].getContenu()){
+					
+					case " ":
+						ok =true;	//Si la case de droite ne contient rien on peut se déplacer.
+						break;
+					
+					case "B":	//Si la case de droite contient une caisse...
+						if((map[x+2][y].getContenu() == " ") || (map[x+2][y].getContenu() == "O")) 
+							ok = true;//...et que la case derrière celle-ci est vide ou contient un espace de stockage, on peut se déplacer
+						else
+							ok = false; //Autrement on interdit le déplacement.
+						break;
+						
+					case "=":
+						ok = false;	//Si la case de droite contient un mur , on interdit le déplacement.
+						break;
+						
+					case "O":
+						ok =true;	//si la case de droite contient un espace de stockage, on peut se déplacer. 
+						break;
+						
+					default:
+						break;
+				}
 				break;
 			
 			default :
