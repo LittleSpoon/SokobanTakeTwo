@@ -2,16 +2,7 @@ package com.supinfo.sokoban;
 
 public class Plateau implements java.io.Serializable {
 								//ATTRIBUTS
-<<<<<<< HEAD
-	int hauteurPlateau;
-	int largeurPlateau;
-	int nb_cibles;
-	String nomPlateau;
-	Case  plateau[][];
-	
-	
-	
-=======
+
 	private int hauteurPlateau;
 	private int largeurPlateau;
 	private int nb_cibles;	
@@ -21,7 +12,6 @@ public class Plateau implements java.io.Serializable {
 	private int coordY;
 	private String contenu;
 		
->>>>>>> 7a400da430a83e15cdb6769852f451043f8aa32b
 								//CONSTRUCTEUR
 	
 	Plateau(){
