@@ -8,33 +8,23 @@ public class Play {
 	private int nb_cibles;
 	private int nb_caissesRangees;
 	private int score = 0;
-	private Plateau  plateau;
+	private Plateau  plateau = null;
 	private Joueur player ;
 	
 						//CONSTRUCTEURS
 	
 	//Constructeur par defaut
-	Play(){
+	public Play(){
 		
-		plateau = new Plateau();
-		nb_cibles = 1;
-		nb_caissesRangees =0;
-		
-		player = new Joueur(plateau.getPlateau(), largeurMap, hauteurMap);
+		this.changerNiveau("niv1");
 	}
 	
 	//constructeur surchargé :
 	
-	Play(String level){
+	public Play(String level){
 		
-		//chargerNiveau(level)
-		
-		
-		/*for(int i =0; i < largeurMap; i++){
-			for(int j = 0; j < hauteurMap; j++){
-				map[i][j] = new Case();
-			}
-		}*/
+		this.changerNiveau(level);
+	
 	}
 	
 	
@@ -43,9 +33,15 @@ public class Play {
 	
 	
 	public void changerNiveau(String level){		//méthode permettant de changer un niveau à partir d'un fichier
-		//largeurMap = level.largeurMap;
-		//hauteurMap = level.hauteurMap;
-		//nb_cible = level.nb_cible;
+		
+		LoadMap loading = new LoadMap(level);
+		plateau = loading.getMap();
+		largeurMap = plateau.getLargeurPlateau();
+		hauteurMap = plateau.getLargeurPlateau();
+		nb_cibles = plateau.getCible();	
+		nb_caissesRangees = 0;
+		player = new Joueur(plateau.getPlateau(), largeurMap, hauteurMap);
+		
 	}
 	
 	public void afficherMap(){
@@ -76,6 +72,8 @@ public class Play {
 	}
 	
 	public void chercherCaissesRangees(Case map[][]){
+		
+		nb_caissesRangees = 0;
 		
 		for(int i =0 ; i < largeurMap; i++){
 			for( int j =0; j < hauteurMap; j++){
