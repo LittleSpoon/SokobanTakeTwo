@@ -2,7 +2,31 @@ package com.supinfo.sokoban;
 
 public class Main {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
+	
+		/*
+		 * 
+		//Petite aide afin de generer un niveau par defaut facilement
+		 * 
+		Plateau niv1 = new Plateau();
+		niv1.setNomPlateau("niv1");
+		niv1.setPlateauCase(1, 1, "X", 0);
+		niv1.setPlateauCase(4, 4, "B", 0);
+		niv1.setPlateauCase(5, 5, "O", 1);
+		niv1.setNb_cibles(1);
+		for(int i=0; i<8; i++){
+			niv1.setPlateauCase(i, 0, "=", 0);
+			niv1.setPlateauCase(i, 7, "=", 0);
+			niv1.setPlateauCase(0, i, "=", 0);
+			niv1.setPlateauCase(7, i, "=", 0);
+		}
+
+		niv1.afficherPlateau();
+		System.out.println(niv1.getNb_cibles());
+		
+		SaveMap saveniv1 = new SaveMap(niv1);*/
+		
 		
 		
 		//Parse the arguments from the console.
@@ -35,6 +59,7 @@ public class Main {
 		} else {
 
 			Play sokoban = new Play();
+			sokoban.jouer();
 			
 		}
 		

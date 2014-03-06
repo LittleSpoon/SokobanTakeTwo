@@ -28,7 +28,6 @@ public class LoadMap {
 	         map = (Plateau) in.readObject();
 	         in.close();
 	         fileIn.close();
-			 return;
 	      }catch(IOException i)
 	      {
 	         i.printStackTrace();

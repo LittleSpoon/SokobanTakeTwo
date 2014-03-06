@@ -1,6 +1,10 @@
 package com.supinfo.sokoban;
 
 public class Plateau implements java.io.Serializable {
+								/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1000L;
 								//ATTRIBUTS
 
 	private int hauteurPlateau;

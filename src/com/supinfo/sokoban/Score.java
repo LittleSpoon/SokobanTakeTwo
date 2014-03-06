@@ -9,17 +9,18 @@ import java.io.File;
 import java.io.BufferedWriter;
 
 
-public class score {
+public class Score {
 	
 	private int j;
 	private int tableauScore[];
 	private String path;
 	private String text;
-	private String filePath;
+	private int score2;
 		
 		public Score(){
 			j = 0;
-			tableauScrore[] = null;
+			score2=0;
+			tableauScore = null;
 			String path = null;
 			String text = null;
 		}
@@ -27,10 +28,10 @@ public class score {
 		//Lire un fichier texte et écrire dans un tableau.
 		//trier le tout 
 	
-		public void ecritureDansFichier(int score){
+		public void EntryAndWriteScore(){
 	
-		while(score!=0){ 
-			tableauScore[j] = score;
+		while(getScore()!=0){ 
+			tableauScore[j] = getScore();
 			j++;
 		}
 	
@@ -54,9 +55,10 @@ public class score {
 	}
 	
 	
-		public void compare(int score){
+		public void compare(int score2){
 			
 		String filePath = " "; //mettre le chemin du fichier
+		
 		 
 		Scanner scanner=new Scanner(new File(filePath));
 		 
@@ -64,8 +66,10 @@ public class score {
 		
 		while (scanner.hasNextLine()) {
 		    String line = scanner.nextLine();
+		 
+			//faites ici votre traitement
 		    
-		    if(score<Integer.parseIn(line)){
+		    if(getScore<Integer.parseIn(line)){
 		    	tableauScore[j]=Integer.parseIn(line);
 		    }else{
 		    	System.out.println("Votre score est trop faible");

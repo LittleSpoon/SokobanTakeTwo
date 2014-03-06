@@ -38,7 +38,7 @@ public class Play {
 		plateau = loading.getMap();
 		largeurMap = plateau.getLargeurPlateau();
 		hauteurMap = plateau.getLargeurPlateau();
-		nb_cibles = plateau.getCible();	
+		nb_cibles = plateau.getNb_cibles();
 		nb_caissesRangees = 0;
 		player = new Joueur(plateau.getPlateau(), largeurMap, hauteurMap);
 		

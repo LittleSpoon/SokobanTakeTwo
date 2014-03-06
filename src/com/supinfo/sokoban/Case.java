@@ -5,6 +5,10 @@ package com.supinfo.sokoban;
 public class Case implements java.io.Serializable{
 	
 	
+						/**
+	 * 
+	 */
+	private static final long serialVersionUID = 100L;
 						//SECTION ATTRIBUTS 
 	
 	
