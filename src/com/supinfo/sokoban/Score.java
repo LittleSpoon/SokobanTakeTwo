@@ -28,10 +28,10 @@ public class Score {
 		//Lire un fichier texte et écrire dans un tableau.
 		//trier le tout 
 	
-		public void EntryAndWriteScore(int score){
+		public void EntryAndWriteScore(){
 	
-		while(score2!=0){ 
-			tableauScore[j] = score2;
+		while(getScore()!=0){ 
+			tableauScore[j] = getScore();
 			j++;
 		}
 	
@@ -69,8 +69,8 @@ public class Score {
 		 
 			//le traitement
 		    
-		    if(score2<Integer.parseInt(line)){
-		    	tableauScore[j]=Integer.parseInt(line);
+		    if(getScore<Integer.parseIn(line)){
+		    	tableauScore[j]=Integer.parseIn(line);
 		    }else{
 		    	System.out.println("Votre score est trop faible");
 		    }
@@ -101,8 +101,8 @@ public class Score {
 		}
 		
 		public static void afficheTableau(){
-			for (int i=0; i<tab.length; i++) {
-				System.out.println (tab);
+			for (int i=0; i<tableauScore.length; i++){
+				System.out.println(tableauScore);
 				}
 		}
 	
