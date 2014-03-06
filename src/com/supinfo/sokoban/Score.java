@@ -67,7 +67,7 @@ public class Score {
 		while (scanner.hasNextLine()) {
 		    String line = scanner.nextLine();
 		 
-			//faites ici votre traitement
+			//le traitement
 		    
 		    if(score2<Integer.parseInt(line)){
 		    	tableauScore[j]=Integer.parseInt(line);
@@ -98,6 +98,12 @@ public class Score {
 					}
 				}
 			} while (permut);
+		}
+		
+		public static void afficheTableau(){
+			for (int i=0; i<tab.length; i++) {
+				System.out.println (tab);
+				}
 		}
 	
 	
