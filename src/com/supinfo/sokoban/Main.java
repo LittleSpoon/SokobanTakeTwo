@@ -59,7 +59,6 @@ public class Main {
 		} else {
 
 			Play sokoban = new Play();
-			sokoban.jouer();
 			
 		}
 		

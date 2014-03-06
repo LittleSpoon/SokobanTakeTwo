@@ -17,6 +17,7 @@ public class Play {
 	public Play(){
 		
 		this.changerNiveau("niv1");
+		this.jouer();
 	}
 	
 	//constructeur surchargé :
@@ -24,6 +25,7 @@ public class Play {
 	public Play(String level){
 		
 		this.changerNiveau(level);
+		this.jouer();
 	
 	}
 	
@@ -61,6 +63,7 @@ public class Play {
 			
 			//player.setDirectionJoueur( SAISIE CLAVIER );
 			
+			score++;
 			player.deplacerJoueur(plateau.getPlateau());		//on déplace le joueur sur la map
 			chercherCaissesRangees(plateau.getPlateau());		//On cherche les caisse déjà rangées
 			if(nb_caissesRangees == nb_cibles){		//si toutes les caisses sont rangées on à gagné 
