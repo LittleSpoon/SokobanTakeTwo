@@ -4,7 +4,7 @@ public class Plateau implements java.io.Serializable {
 								/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1000L;
+	private static final long serialVersionUID = 1001L;
 								//ATTRIBUTS
 
 	private int hauteurPlateau;
@@ -16,6 +16,8 @@ public class Plateau implements java.io.Serializable {
 	private int coordY;
 	private String contenu;
 	private int cible;
+	private int x_joueur;
+	private int y_joueur;
 		
 								//CONSTRUCTEUR
 	
@@ -28,6 +30,8 @@ public class Plateau implements java.io.Serializable {
 		nb_cibles =1;
 		cible=0;
 		nomPlateau="temp";
+		x_joueur = 1;
+		y_joueur = 1;
 		
 		plateau = new Case[largeurPlateau][hauteurPlateau];
 		for(int i = 0; i < largeurPlateau; i++) {
@@ -40,6 +44,7 @@ public class Plateau implements java.io.Serializable {
 							//METHODE
 	
 	//La méthode changerTaillePlateau permet de changer la taille du plateau lors d'un changement de niveau par exemple :
+	/*
 	public void changerTaillePlateau(int nlleHauteur, int nlleLargeur){
 		
 		//On commence par libérer l'espace précédement alloué a notre plateau de case :
@@ -61,7 +66,7 @@ public class Plateau implements java.io.Serializable {
 				plateau[i][j] = new Case();
 			}
 		}
-	}
+	}*/
 	
 	//Methode pour afficher le tableau
 	public void afficherPlateau(){
@@ -154,6 +159,22 @@ public class Plateau implements java.io.Serializable {
 
 	public void setCible(int cible) {
 		this.cible = cible;
+	}
+
+	public int getX_joueur() {
+		return x_joueur;
+	}
+
+	public void setX_joueur(int x_joueur) {
+		this.x_joueur = x_joueur;
+	}
+
+	public int getY_joueur() {
+		return y_joueur;
+	}
+
+	public void setY_joueur(int y_joueur) {
+		this.y_joueur = y_joueur;
 	}
 
 }

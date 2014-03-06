@@ -13,10 +13,10 @@ public class Joueur {
 	
 						//CONSTRUCTEUR
 	
-	Joueur(Case map[][], int largeurMap, int hauteurMap){
+	Joueur(Case map[][], int largeurMap, int hauteurMap, int x_joueur, int y_joueur){
 		score = 0;
-		x = 0;
-		y =0;
+		x = x_joueur;
+		y = y_joueur;
 		directionJoueur = "DROITE";
 		
 	}
@@ -99,7 +99,7 @@ public class Joueur {
 						map[x][y].setContenu("O");
 					}
 					x--;
-					map[x][y].setContenu("X");
+
 					break;
 			
 				case "DROITE":
