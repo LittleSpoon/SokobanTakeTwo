@@ -1,4 +1,5 @@
 package com.supinfo.sokoban;
+import java.util.Scanner;
 
 public class Play {
 	
