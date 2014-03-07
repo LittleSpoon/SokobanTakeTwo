@@ -5,8 +5,13 @@ public class Joueur {
 	
 						//ATTRIBUTS :
 	private int score;
-	private int x;
-	private int y;
+	private int xJoueur;
+	private int yJoueur;
+	private int xCaisse;
+	private int yCaisse;
+	private int xColli;
+	private int yColli;
+	private int isCaisseAlreadyUsed;
 	private String directionJoueur;
 	
 						
@@ -15,104 +20,127 @@ public class Joueur {
 	
 	Joueur(Case map[][], int largeurMap, int hauteurMap, int x_joueur, int y_joueur){
 		score = 0;
-		x = x_joueur;
-		y = y_joueur;
+		xJoueur = x_joueur;
+		yJoueur = y_joueur;
+		xCaisse=0;
+		yCaisse=0;
+		xColli=0;
+		yColli=0;
+		isCaisseAlreadyUsed=0;
 		directionJoueur = "DROITE";
 		
 	}
 						//METHODES :
-	public void deplacerCaisse(Case map[][]){
+	public boolean deplacerCaisse(Case map[][],int xCaisse,int yCaisse){
 		
-		switch(directionJoueur){
-			case "HAUT":
-				//Si la case du dessus contient une caisse
-				if(map[x][y-1].getContenu() == "B"){
-					//...et que la case au au dessus de celle ci est vide ou contient un espace de stokage
-					if((map[x][y-2].getContenu() == " ") || (map[x][y-2].getContenu() == "O")){
-						map[x][y-2].setContenu("B");	//...On indique que la case contient desormais une caisse.
-					}
-				}
-				break;
+		if(gestionCollision(map,xCaisse,yCaisse,1) == true){	//Si on à le droit de se déplacer  
 			
-			case "BAS":
-				if(map[x][y+1].getContenu() == "B"){
-					if((map[x][y+2].getContenu() == " ") || (map[x][y+2].getContenu() == "O")){
-						map[x][y+2].setContenu("B");
-					}
+			switch(directionJoueur){
+				
+					case "HAUT":
+						if(map[xCaisse][yCaisse].getCible() == 0){	//Si la case ou l'on se trouve n'est pas un espace de stockage...
+							map[xCaisse][yCaisse].setContenu(" ");	//...le contenu de la case sera un espace vide.
+						}
+						else{
+							map[xCaisse][yCaisse].setContenu("O");	//...Autrement si c'est un espace de stockage le contneu de la case sera un espace de stokage
+						}
+						yCaisse--;
+						map[xCaisse][yCaisse].setContenu("B");	//enfin on déplace le joueur et on change le contenu de la case afin qu'elle contienne le joueur
+						break;
+				
+					case "BAS":
+						if(map[xCaisse][yCaisse].getCible() == 0){
+							map[xCaisse][yCaisse].setContenu(" ");
+						}
+						else{
+							map[xCaisse][yCaisse].setContenu("O");
+						}
+						yCaisse++;
+						map[xCaisse][yCaisse].setContenu("B");
+						break;
+				
+					case "GAUCHE":
+						if(map[xCaisse][yCaisse].getCible() == 0){
+							map[xCaisse][yCaisse].setContenu(" ");
+						}
+						else{
+							map[xCaisse][yCaisse].setContenu("O");
+						}
+						xCaisse--;
+						map[xCaisse][yCaisse].setContenu("B");
+
+						break;
+				
+					case "DROITE":
+						if(map[xCaisse][yCaisse].getCible() == 0){
+							map[xCaisse][yCaisse].setContenu(" ");
+						}
+						else{
+							map[xCaisse][yCaisse].setContenu("O");
+						}
+						xCaisse++;
+						map[xCaisse][yCaisse].setContenu("B");
+						break;
+				
+					default :
+						break;
+						
 				}
-				break;
-			
-			case "GAUCHE":
-				if(map[x-1][y].getContenu() == "B"){
-					if((map[x-2][y].getContenu() == " ") || (map[x-2][y].getContenu() == "O")){
-						map[x-2][y].setContenu("B");
-					}
-				}
-				break;
-			
-			case "DROITE":
-				if(map[x+1][y].getContenu() == "B"){
-					if((map[x+2][y].getContenu() == " ") || (map[x+2][y].getContenu() == "O")){
-						map[x+2][y].setContenu("B");
-					}
-				}
-				break;
-		}
+			return true;
+			} else {
+				return false;
+			}
 	}
 	
 	public void deplacerJoueur(Case map[][]){
 		
-		if(gestionCollision(map) == true){	//Si on à le droit de se déplacer  
+		if(gestionCollision(map,xJoueur,yJoueur,0) == true){	//Si on à le droit de se déplacer  
 		
 		switch(directionJoueur){
 			
 				case "HAUT":
-					deplacerCaisse(map);
-					if(map[x][y].getCible() == 0){	//Si la case ou l'on se trouve n'est pas un espace de stockage...
-						map[x][y].setContenu(" ");	//...le contenu de la case sera un espace vide.
+					if(map[xJoueur][yJoueur].getCible() == 0){	//Si la case ou l'on se trouve n'est pas un espace de stockage...
+						map[xJoueur][yJoueur].setContenu(" ");	//...le contenu de la case sera un espace vide.
 					}
 					else{
-						map[x][y].setContenu("O");	//...Autrement si c'est un espace de stockage le contneu de la case sera un espace de stokage
+						map[xJoueur][yJoueur].setContenu("O");	//...Autrement si c'est un espace de stockage le contneu de la case sera un espace de stokage
 					}
-					y--;
-					map[x][y].setContenu("X");	//enfin on déplace le joueur et on change le contenu de la case afin qu'elle contienne le joueur
+					yJoueur--;
+					map[xJoueur][yJoueur].setContenu("X");	//enfin on déplace le joueur et on change le contenu de la case afin qu'elle contienne le joueur
 					break;
 			
 				case "BAS":
-					deplacerCaisse(map);
-					if(map[x][y].getCible() == 0){
-						map[x][y].setContenu(" ");
+					if(map[xJoueur][yJoueur].getCible() == 0){
+						map[xJoueur][yJoueur].setContenu(" ");
 					}
 					else{
-						map[x][y].setContenu("O");
+						map[xJoueur][yJoueur].setContenu("O");
 					}
-					y++;
-					map[x][y].setContenu("X");
+					yJoueur++;
+					map[xJoueur][yJoueur].setContenu("X");
 					break;
 			
 				case "GAUCHE":
-					deplacerCaisse(map);
-					if(map[x][y].getCible() == 0){
-						map[x][y].setContenu(" ");
+					if(map[xJoueur][yJoueur].getCible() == 0){
+						map[xJoueur][yJoueur].setContenu(" ");
 					}
 					else{
-						map[x][y].setContenu("O");
+						map[xJoueur][yJoueur].setContenu("O");
 					}
-					x--;
-					map[x][y].setContenu("X");
+					xJoueur--;
+					map[xJoueur][yJoueur].setContenu("X");
 
 					break;
 			
 				case "DROITE":
-					deplacerCaisse(map);
-					if(map[x][y].getCible() == 0){
-						map[x][y].setContenu(" ");
+					if(map[xJoueur][yJoueur].getCible() == 0){
+						map[xJoueur][yJoueur].setContenu(" ");
 					}
 					else{
-						map[x][y].setContenu("O");
+						map[xJoueur][yJoueur].setContenu("O");
 					}
-					x++;
-					map[x][y].setContenu("X");
+					xJoueur++;
+					map[xJoueur][yJoueur].setContenu("X");
 					break;
 			
 				default :
@@ -122,7 +150,7 @@ public class Joueur {
 		
 	}
 	
-	public boolean gestionCollision(Case map[][]){
+	public boolean gestionCollision(Case map[][], int xColli, int yColli, int isCaisseAlreadyUsed){
 		
 		boolean ok = false;
 		
@@ -131,15 +159,17 @@ public class Joueur {
 			case "HAUT" :
 				//On teste le contenu de la case au dessus du joueur :
 				
-				switch(map[x][y-1].getContenu()){		//On teste le contenu de la case au dessus du joueur
+				switch(map[xColli][yColli-1].getContenu()){		//On teste le contenu de la case au dessus du joueur
 					case " " :
 						ok = true;	//Si la case d'au dessus est vide on peut deplacer le joueur vers le haut
 						break;
 					
-					case "B" :	//Si la case au dessus est une caisse... 
-						//...Et si la case au dessus de cette caisse est vide ou correspond à une zone de stokage :
-						if((map[x][y-2].getContenu() == " ") || (map[x][y-2].getContenu() == "O"))
-							ok  = true;					//Alors on peut déplaçer le joueur vers le haut;
+					case "B" :	//Si la case au dessus est une caisse...
+						if(isCaisseAlreadyUsed == 0){
+							ok = this.deplacerCaisse(map,xColli,yColli-1);
+						} else {
+							ok = false;
+						}
 						break;
 					
 					case "=":	//Si la case du dessus est un mur :
@@ -157,20 +187,21 @@ public class Joueur {
 			
 			case "BAS" :
 				//On teste le contenu de la case en dessus du joueur :
-				switch(map[x][y+1].getContenu()){
+				switch(map[xColli][yColli+1].getContenu()){
 					case " ":
 						ok =true;
 						break;
 					
 					case "B":
-						if((map[x][y+2].getContenu() == " ") || (map[x][y+2].getContenu() == "O"))
-							ok =true;
-						else 
-							ok =false; //S'il y a une caisse ou un mur derrière la caisse on interdit le deplacement;
+						if(isCaisseAlreadyUsed == 0){
+							ok = this.deplacerCaisse(map,xColli,yColli+1);
+						} else {
+							ok = false;
+						}
 						break;
 					
 					case "=":	
-						ok =false; //s'il y a un mur on interdit le déplacement
+						ok =false; //s'il yColli a un mur on interdit le déplacement
 						break;
 					
 					case "O":		//si la case est un espace de stockage ou peut déplacer le joueur vers le bas
@@ -184,16 +215,17 @@ public class Joueur {
 			
 			case "GAUCHE" :
 				//On teste le contenu de la case à gauche du joueur :
-				switch(map[x-1][y].getContenu()){
+				switch(map[xColli-1][yColli].getContenu()){
 					case " ":
 						ok = true;	//si la case de gauche est vide on peut se déplacer
 						break;
 					
 					case "B" :	//si la case de gauche contient une caisse...
-						if((map[x-2][y].getContenu() == " ") || (map[x-2][y].getContenu() == "O")) 
-							ok =true;	//....et que la case derriere celle ci est vide ou contient un espace de stockage, on peut se déplacer. 
-						else
-							ok =false;	//Sinon on interdit le déplacement.
+						if(isCaisseAlreadyUsed == 0){
+							ok = this.deplacerCaisse(map,xColli-1,yColli);
+						} else {
+							ok = false;
+						}
 						break;
 					
 					case "=":
@@ -211,17 +243,18 @@ public class Joueur {
 			
 			case "DROITE" :
 				//On teste le contenu de la case à droite du joueur :
-				switch(map[x+1][y].getContenu()){
+				switch(map[xColli+1][yColli].getContenu()){
 					
 					case " ":
 						ok =true;	//Si la case de droite ne contient rien on peut se déplacer.
 						break;
 					
 					case "B":	//Si la case de droite contient une caisse...
-						if((map[x+2][y].getContenu() == " ") || (map[x+2][y].getContenu() == "O")) 
-							ok = true;//...et que la case derrière celle-ci est vide ou contient un espace de stockage, on peut se déplacer
-						else
-							ok = false; //Autrement on interdit le déplacement.
+						if(isCaisseAlreadyUsed == 0){
+							ok = this.deplacerCaisse(map,xColli+1,yColli);
+						} else {
+							ok = false;
+						}
 						break;
 						
 					case "=":
@@ -252,20 +285,20 @@ public class Joueur {
 		this.score = score;
 	}
 
-	public int getX() {
-		return x;
+	public int getxJoueur() {
+		return xJoueur;
 	}
 
-	public void setX(int x) {
-		this.x = x;
+	public void setxJoueur(int xJoueur) {
+		this.xJoueur = xJoueur;
 	}
 
-	public int getY() {
-		return y;
+	public int getyJoueur() {
+		return yJoueur;
 	}
 
-	public void setY(int y) {
-		this.y = y;
+	public void setyJoueur(int yJoueur) {
+		this.yJoueur = yJoueur;
 	}
 
 	public String getDirectionJoueur() {
