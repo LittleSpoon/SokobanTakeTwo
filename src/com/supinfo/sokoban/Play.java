@@ -17,10 +17,7 @@ public class Play {
 						//CONSTRUCTEURS
 	
 	//Constructeur par defaut
-	public Play(){
-		
-		saisieClavier = new Scanner(System.in);
-		
+	public Play(){	
 		this.changerNiveau("niv1");
 		this.jouer();
 	}
@@ -41,6 +38,7 @@ public class Play {
 	
 	public void changerNiveau(String level){		//méthode permettant de changer un niveau à partir d'un fichier
 		
+		saisieClavier = new Scanner(System.in);
 		LoadMap loading = new LoadMap(level);
 		plateau = loading.getMap();
 		largeurMap = plateau.getLargeurPlateau();
