@@ -99,6 +99,7 @@ public class Joueur {
 						map[x][y].setContenu("O");
 					}
 					x--;
+					map[x][y].setContenu("X");
 
 					break;
 			

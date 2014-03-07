@@ -73,21 +73,22 @@ public class Play {
 			
 			directionChoisie = saisieClavier.nextLine();
 			
+			//Une petite confusion au niveau du nom des variabled, preferable de changer ici plutot que dans joueur.
 			switch(directionChoisie){
 				case "H":
-					player.setDirectionJoueur("HAUT");
-					break;
-				
-				case "B":
-					player.setDirectionJoueur("BAS");
-					break;
-				
-				case "G":
 					player.setDirectionJoueur("GAUCHE");
 					break;
 				
-				case "D":
+				case "B":
 					player.setDirectionJoueur("DROITE");
+					break;
+				
+				case "G":
+					player.setDirectionJoueur("HAUT");
+					break;
+				
+				case "D":
+					player.setDirectionJoueur("BAS");
 					break;
 				
 				default:

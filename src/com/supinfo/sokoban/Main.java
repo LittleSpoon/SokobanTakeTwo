@@ -5,10 +5,10 @@ public class Main {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 	
-		/*
-		 * 
+		
+		 /*
 		//Petite aide afin de generer un niveau par defaut facilement
-		 * 
+		 
 		Plateau niv1 = new Plateau();
 		niv1.setNomPlateau("niv1");
 		niv1.setPlateauCase(1, 1, "X", 0);
@@ -25,7 +25,8 @@ public class Main {
 		niv1.afficherPlateau();
 		System.out.println(niv1.getNb_cibles());
 		
-		SaveMap saveniv1 = new SaveMap(niv1);*/
+		SaveMap saveniv1 = new SaveMap(niv1);
+		*/
 		
 		
 		
