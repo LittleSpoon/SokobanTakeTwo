@@ -57,6 +57,9 @@ public class Editor {
 				if (t.toString().equals("O")) {
 					cible = 1;
 					nbCibles++;
+				} else if(t.toString().equals("X")){
+					plateau.setX_joueur(x);
+					plateau.setY_joueur(y);
 				}
 				plateau.setPlateauCase(x, y, t.toString(), cible);
 				cible = 0;
