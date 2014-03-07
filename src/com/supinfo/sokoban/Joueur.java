@@ -27,7 +27,7 @@ public class Joueur {
 		xColli=0;
 		yColli=0;
 		isCaisseAlreadyUsed=0;
-		directionJoueur = "DROITE";
+		directionJoueur = "RIEN";
 		
 	}
 						//METHODES :
@@ -142,10 +142,14 @@ public class Joueur {
 					xJoueur++;
 					map[xJoueur][yJoueur].setContenu("X");
 					break;
+					
+				case "RIEN":
+					break;
 			
 				default :
 					break;
 			}
+		directionJoueur="RIEN";
 		}
 		
 	}

@@ -101,10 +101,12 @@ public class Play {
 			chercherCaissesRangees(plateau.getPlateau());		//On cherche les caisse déjà rangées
 			if(nb_caissesRangees == nb_cibles){		//si toutes les caisses sont rangées on à gagné 
 				victoire = true;
+				afficherMap();
 			}
 			
 		}
 		while(victoire == false); 	//On sort de la boucle si les conditions de victoire sont remplies
+		System.out.println("Vous avez resolue le niveau.");
 	}
 	
 	public void chercherCaissesRangees(Case map[][]){
