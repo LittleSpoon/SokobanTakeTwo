@@ -11,6 +11,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
+import com.supinfo.sokoban.unused.Plateau;
+
 public class SaveMap {
 	
 	public SaveMap(Plateau map){

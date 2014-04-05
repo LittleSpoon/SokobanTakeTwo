@@ -13,6 +13,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
+import com.supinfo.sokoban.unused.Plateau;
+
 public class LoadMap {
 	
 	private Plateau map;

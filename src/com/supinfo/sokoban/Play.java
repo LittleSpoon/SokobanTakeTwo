@@ -1,6 +1,9 @@
 package com.supinfo.sokoban;
 import java.util.Scanner;
 
+import com.supinfo.sokoban.unused.Case;
+import com.supinfo.sokoban.unused.Plateau;
+
 public class Play {
 	
 						//ATTRIBUT
@@ -22,7 +25,7 @@ public class Play {
 		this.jouer();
 	}
 	
-	//constructeur surchargé :
+	//constructeur surchargï¿½ :
 	
 	public Play(String level){
 		
@@ -36,7 +39,7 @@ public class Play {
 	
 	
 	
-	public void changerNiveau(String level){		//méthode permettant de changer un niveau à partir d'un fichier
+	public void changerNiveau(String level){		//mï¿½thode permettant de changer un niveau ï¿½ partir d'un fichier
 		
 		saisieClavier = new Scanner(System.in);
 		LoadMap loading = new LoadMap(level);
@@ -54,13 +57,13 @@ public class Play {
 		plateau.afficherPlateau();
 	}
 	
-	//La méthode jouer devra etre appelée dans le main elle permet de faire tourner le jeu
+	//La mï¿½thode jouer devra etre appelï¿½e dans le main elle permet de faire tourner le jeu
 	
 	public void jouer(){
 		
 		boolean victoire = false;
 		
-		//On boucle tant que l'utilisateur n'a pas gagné : 
+		//On boucle tant que l'utilisateur n'a pas gagnï¿½ : 
 		do{
 			
 			afficherMap(); //On affiche la map
@@ -95,9 +98,9 @@ public class Play {
 			}
 			
 			score++;
-			player.deplacerJoueur(plateau.getPlateau());		//on déplace le joueur sur la map
-			chercherCaissesRangees(plateau.getPlateau());		//On cherche les caisse déjà rangées
-			if(nb_caissesRangees == nb_cibles){		//si toutes les caisses sont rangées on à gagné 
+			player.deplacerJoueur(plateau.getPlateau());		//on dï¿½place le joueur sur la map
+			chercherCaissesRangees(plateau.getPlateau());		//On cherche les caisse dï¿½jï¿½ rangï¿½es
+			if(nb_caissesRangees == nb_cibles){		//si toutes les caisses sont rangï¿½es on ï¿½ gagnï¿½ 
 				victoire = true;
 				afficherMap();
 			}

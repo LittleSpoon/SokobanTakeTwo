@@ -1,10 +1,15 @@
 package com.supinfo.sokoban;
 
+import com.supinfo.sokoban.level.Plateau;
+
+
 public class Main {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-	
+		
+		Plateau test = new Plateau();
+		System.out.print(test.toString());
 		
 		 /*
 		//Petite aide afin de generer un niveau par defaut facilement
@@ -31,7 +36,7 @@ public class Main {
 		
 		
 		//Parse the arguments from the console.
-
+		/*
 		if (args.length >= 1) { 						//Test if there is an argument
 		
 			if (args[0].equals("--create")) {			//Test if the argument equal --create and launch Editor.
@@ -62,7 +67,7 @@ public class Main {
 			Play sokoban = new Play();
 			
 		}
-		
+		*/
 		
 		
 		

@@ -2,11 +2,13 @@ package com.supinfo.sokoban;
 
 import java.util.Scanner;
 
+import com.supinfo.sokoban.unused.Plateau;
+
 public class Editor {
 
-	// On créé un string dans lequel le joueur entrera le 8 lignes de la map
+	// On crï¿½ï¿½ un string dans lequel le joueur entrera le 8 lignes de la map
 	String ligne;
-	// Cible passera a 1 si le caractère "O" est repéré lors de la vérification
+	// Cible passera a 1 si le caractï¿½re "O" est repï¿½rï¿½ lors de la vï¿½rification
 	// d'un caractere d'une ligne
 	int cible = 0;
 	private Plateau plateau;
@@ -21,7 +23,7 @@ public class Editor {
 		plateau = new Plateau();
 		nbCibles = 0;
 
-		// l est un entier qui sera égale a 1 une fois les lignes bien validées
+		// l est un entier qui sera ï¿½gale a 1 une fois les lignes bien validï¿½es
 		int l = 0;
 
 		System.out.println("Bienvenu dans l'editeur");

@@ -1,4 +1,4 @@
-package com.supinfo.sokoban;
+package com.supinfo.sokoban.unused;
 
 
 
@@ -12,12 +12,12 @@ public class Case implements java.io.Serializable{
 						//SECTION ATTRIBUTS 
 	
 	
-	private int abscisse;		//deux int indiquant l'abscisse et l'ordonnée de la case 
+	private int abscisse;		//deux int indiquant l'abscisse et l'ordonnï¿½e de la case 
 	private int ordonnee;
 	private String contenu;		//un string qui indiquera ce que contiendra la case (joueur , caisse , mur....)
 	private int cible;
 	
-	//Constructeur par défaut de la classe Case :
+	//Constructeur par dï¿½faut de la classe Case :
 	public Case(){
 		abscisse =0;
 		ordonnee = 0;
@@ -25,7 +25,7 @@ public class Case implements java.io.Serializable{
 		cible = 0;
 	}
 	
-	//Constructeur "surchargé  :
+	//Constructeur "surchargï¿½  :
 	public Case(int x, int y, String contenuCase){
 		abscisse = x;
 		ordonnee = y;
@@ -38,7 +38,7 @@ public class Case implements java.io.Serializable{
 	
 	
 	
-	//Méthode permettant d'afficher le contenu de la case :
+	//Mï¿½thode permettant d'afficher le contenu de la case :
 	
 	public  void afficherContenu(){
 		
@@ -61,13 +61,13 @@ public class Case implements java.io.Serializable{
 		this.abscisse = abscisse;
 	}
 	
-	//Getter de l'ordonnée de la case :
+	//Getter de l'ordonnï¿½e de la case :
 	
 	public int getOrdonnee() {
 		return ordonnee;
 	}
 	
-	//Setter de l'ordonnée de la case :
+	//Setter de l'ordonnï¿½e de la case :
 	
 	public void setOrdonnee(int ordonnee) {
 		this.ordonnee = ordonnee;

@@ -1,4 +1,5 @@
-package com.supinfo.sokoban;
+package com.supinfo.sokoban.unused;
+
 
 public class Plateau implements java.io.Serializable {
 								/**
@@ -43,11 +44,11 @@ public class Plateau implements java.io.Serializable {
 	
 							//METHODE
 	
-	//La méthode changerTaillePlateau permet de changer la taille du plateau lors d'un changement de niveau par exemple :
+	//La mï¿½thode changerTaillePlateau permet de changer la taille du plateau lors d'un changement de niveau par exemple :
 	/*
 	public void changerTaillePlateau(int nlleHauteur, int nlleLargeur){
 		
-		//On commence par libérer l'espace précédement alloué a notre plateau de case :
+		//On commence par libï¿½rer l'espace prï¿½cï¿½dement allouï¿½ a notre plateau de case :
 		for(int i = 0; i < largeurPlateau; i++) {
 			
 			for(int j =0; j < hauteurPlateau; j++) {
@@ -57,7 +58,7 @@ public class Plateau implements java.io.Serializable {
 		
 		plateau =null;
 		
-		//L'on lui attribue ensuite un nouvel espace mémoire afin de changer sa taille :
+		//L'on lui attribue ensuite un nouvel espace mï¿½moire afin de changer sa taille :
 		
 		plateau = new Case [nlleLargeur][nlleHauteur];
 		

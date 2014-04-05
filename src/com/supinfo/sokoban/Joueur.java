@@ -1,5 +1,7 @@
 package com.supinfo.sokoban;
 
+import com.supinfo.sokoban.unused.Case;
+
 public class Joueur {
 						
 	
@@ -33,7 +35,7 @@ public class Joueur {
 						//METHODES :
 	public boolean deplacerCaisse(Case map[][],int xCaisse,int yCaisse){
 		
-		if(gestionCollision(map,xCaisse,yCaisse,1) == true){	//Si on à le droit de se déplacer  
+		if(gestionCollision(map,xCaisse,yCaisse,1) == true){	//Si on ï¿½ le droit de se dï¿½placer  
 			
 			switch(directionJoueur){
 				
@@ -45,7 +47,7 @@ public class Joueur {
 							map[xCaisse][yCaisse].setContenu("O");	//...Autrement si c'est un espace de stockage le contneu de la case sera un espace de stokage
 						}
 						yCaisse--;
-						map[xCaisse][yCaisse].setContenu("B");	//enfin on déplace le joueur et on change le contenu de la case afin qu'elle contienne le joueur
+						map[xCaisse][yCaisse].setContenu("B");	//enfin on dï¿½place le joueur et on change le contenu de la case afin qu'elle contienne le joueur
 						break;
 				
 					case "BAS":
@@ -94,7 +96,7 @@ public class Joueur {
 	
 	public void deplacerJoueur(Case map[][]){
 		
-		if(gestionCollision(map,xJoueur,yJoueur,0) == true){	//Si on à le droit de se déplacer  
+		if(gestionCollision(map,xJoueur,yJoueur,0) == true){	//Si on ï¿½ le droit de se dï¿½placer  
 		
 		switch(directionJoueur){
 			
@@ -106,7 +108,7 @@ public class Joueur {
 						map[xJoueur][yJoueur].setContenu("O");	//...Autrement si c'est un espace de stockage le contneu de la case sera un espace de stokage
 					}
 					yJoueur--;
-					map[xJoueur][yJoueur].setContenu("X");	//enfin on déplace le joueur et on change le contenu de la case afin qu'elle contienne le joueur
+					map[xJoueur][yJoueur].setContenu("X");	//enfin on dï¿½place le joueur et on change le contenu de la case afin qu'elle contienne le joueur
 					break;
 			
 				case "BAS":
@@ -158,7 +160,7 @@ public class Joueur {
 		
 		boolean ok = false;
 		
-		switch(directionJoueur){	//On teste la direction du joueur grâce a un switch
+		switch(directionJoueur){	//On teste la direction du joueur grï¿½ce a un switch
 		
 			case "HAUT" :
 				//On teste le contenu de la case au dessus du joueur :
@@ -181,7 +183,7 @@ public class Joueur {
 						break;
 					
 					case "O":		//Si la case au dessus du joueur est une zone de stokage
-						ok = true;	//ALors on peut se déplacer vers le haut 
+						ok = true;	//ALors on peut se dï¿½placer vers le haut 
 						break;
 						
 					default :
@@ -205,10 +207,10 @@ public class Joueur {
 						break;
 					
 					case "=":	
-						ok =false; //s'il yColli a un mur on interdit le déplacement
+						ok =false; //s'il yColli a un mur on interdit le dï¿½placement
 						break;
 					
-					case "O":		//si la case est un espace de stockage ou peut déplacer le joueur vers le bas
+					case "O":		//si la case est un espace de stockage ou peut dï¿½placer le joueur vers le bas
 						ok = true;
 						break;
 					
@@ -218,10 +220,10 @@ public class Joueur {
 				break;
 			
 			case "GAUCHE" :
-				//On teste le contenu de la case à gauche du joueur :
+				//On teste le contenu de la case ï¿½ gauche du joueur :
 				switch(map[xColli-1][yColli].getContenu()){
 					case " ":
-						ok = true;	//si la case de gauche est vide on peut se déplacer
+						ok = true;	//si la case de gauche est vide on peut se dï¿½placer
 						break;
 					
 					case "B" :	//si la case de gauche contient une caisse...
@@ -233,11 +235,11 @@ public class Joueur {
 						break;
 					
 					case "=":
-						ok = false;		//Si la case de gauche est un mur on interdit le déplacement
+						ok = false;		//Si la case de gauche est un mur on interdit le dï¿½placement
 						break;
 					
 					case "O":
-						ok =true;	//Si la case de gauchte est un espace de stockage on peut se déplacer
+						ok =true;	//Si la case de gauchte est un espace de stockage on peut se dï¿½placer
 						break;
 					
 					default:
@@ -246,11 +248,11 @@ public class Joueur {
 				break;
 			
 			case "DROITE" :
-				//On teste le contenu de la case à droite du joueur :
+				//On teste le contenu de la case ï¿½ droite du joueur :
 				switch(map[xColli+1][yColli].getContenu()){
 					
 					case " ":
-						ok =true;	//Si la case de droite ne contient rien on peut se déplacer.
+						ok =true;	//Si la case de droite ne contient rien on peut se dï¿½placer.
 						break;
 					
 					case "B":	//Si la case de droite contient une caisse...
@@ -262,11 +264,11 @@ public class Joueur {
 						break;
 						
 					case "=":
-						ok = false;	//Si la case de droite contient un mur , on interdit le déplacement.
+						ok = false;	//Si la case de droite contient un mur , on interdit le dï¿½placement.
 						break;
 						
 					case "O":
-						ok =true;	//si la case de droite contient un espace de stockage, on peut se déplacer. 
+						ok =true;	//si la case de droite contient un espace de stockage, on peut se dï¿½placer. 
 						break;
 						
 					default:
