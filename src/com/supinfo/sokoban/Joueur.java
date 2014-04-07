@@ -38,7 +38,7 @@ public class Joueur {
 		if(gestionCollision(map,xCaisse,yCaisse,1) == true){	//Si on � le droit de se d�placer  
 			
 			switch(directionJoueur){
-				
+				//TODO Switch all setContenue by a new Case()
 					case "HAUT":
 						if(map[xCaisse][yCaisse].getCible() == 0){	//Si la case ou l'on se trouve n'est pas un espace de stockage...
 							map[xCaisse][yCaisse].setContenu(" ");	//...le contenu de la case sera un espace vide.
